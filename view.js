@@ -41,14 +41,14 @@ function selectedConsole() {
 function addNewGame() {
     app.innerHTML = `
     <h1>New Game</h1>
-    <br><button onclick="updateview()">Back to library</button>
+    <br><button onclick="updateView()">Back to library</button>
     <div>
     <br/>
-    <div>Game Title:    <input></div>
-    <div>Release year:  <input></div>
-    <div>Console:       <input></div>
+    <div>Game Title:   </div> <input>
+    <div>Release year: </div> <input>
+    <div>Console:      </div> <input>
     <br/>
-    <button>Add New Game</button>
+    <button onclick="">Add New Game</button>
     </div>
     `;
 }
