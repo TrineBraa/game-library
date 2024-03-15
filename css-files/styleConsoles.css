@@ -1,0 +1,16 @@
+.consoles{
+    height: 150px;
+    width: 250px;
+    border: 1px solid black;
+    margin-left: 7px;
+    background-color: white;
+    cursor: pointer;
+}
+
+#consoleContainer{
+    background-color: cadetblue;
+    width: 800px;
+    align-items: baseline;
+    height: 200px;
+    justify-content: baseline;
+}
