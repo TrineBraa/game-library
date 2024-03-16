@@ -1,5 +1,8 @@
-// Show different games for each Console
-
+// choose a Console
+function chooseAConsole(index) {
+    choosenConsole = gamingConsoles[index].name;
+    console.log(choosenConsole)
+}
 
 //Reset the View
 

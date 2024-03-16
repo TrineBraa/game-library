@@ -11,7 +11,7 @@ function updateView() {
     <br/>
     <br/>
     <div id="buttonContainer">
-    <button onclick="addNewGame()">Add a New Game</button><button>Get a Random Game</button><button>See all Games</button>
+    <button onclick="addNewGame()">Add a New Game</button><button>Get a Random Game</button><button onclick="updateView()">See all Games</button>
     </div>
     <h3>My Games</h3>                   </div>
     <br/>
@@ -25,7 +25,7 @@ function updateView() {
 function seeConsoles() {
     consoleHtml = '';
     for (let i = 0; i < gamingConsoles.length; i++) {
-        consoleHtml += `<img class="consoles" onclick="selectedConsole()" src="${gamingConsoles[i].consoleImg}" />`
+        consoleHtml += `<img class="consoles" onclick="chooseAConsole(${i})" src="${gamingConsoles[i].consoleImg}" />`
     }
     return consoleHtml;
 }
@@ -33,7 +33,10 @@ function seeConsoles() {
 
 //Selected console view
 function selectedConsole() {
-
+    if (choosenConsole == allGames[i].consoleLibrary) {
+        gamesHtml += `<img class="showngameImg" onclick="" src=""/>`;
+        updateView()
+    }
 }
 
 
@@ -60,5 +63,6 @@ function showAllGames() {
     for (let i = 0; i < allGames.length; i++) {
         gamesHtml += `<img class="showngameImg" onclick="" src="${allGames[i].gameImg}"/>`;
     }
+
     return gamesHtml;
 }

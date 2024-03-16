@@ -28,25 +28,25 @@ const allGames = [
     //NES Games
     {
         gameName: "The Legend of Zelda",
-        consoleLibrary: "NES",
+        consoleLibrary: "Nintendo Entertainment System (NES)",
         releaseYear: 1987,
         gameImg: 'img/legendofzelda.webp'
     },
     {
         gameName: "Super Mario Bros",
-        consoleLibrary: "NES",
+        consoleLibrary: "Nintendo Entertainment System (NES)",
         releaseYear: 1987,
         gameImg: 'img/supermariobros.webp'
     },
     {
         gameName: "Final Fantasy II",
-        consoleLibrary: "NES",
+        consoleLibrary: "Nintendo Entertainment System (NES)",
         releaseYear: 1991,
         gameImg: 'img/finalfantasyII.webp'
     },
     {
         gameName: "Mega Man",
-        consoleLibrary: "NES",
+        consoleLibrary: "Nintendo Entertainment System (NES)",
         releaseYear: 1989,
         gameImg: 'img/megaman.jpg'
     },
@@ -55,25 +55,25 @@ const allGames = [
     //N64 Games
     {
         gameName: "Kirby 64: The Crystal Shards",
-        consoleLibrary: "N64",
+        consoleLibrary: "Nintendo 64",
         releaseYear: 2000,
         gameImg: 'img/kirby64thecrystalshards.webp'
     },
     {
         gameName: "The Legend of Zelda: Majora's Mask",
-        consoleLibrary: "N64",
+        consoleLibrary: "Nintendo 64",
         releaseYear: 2000,
         gameImg: 'img/legendofzeldamajorasmask.jpg'
     },
     {
         gameName: "Rayman 2: The Great Escape",
-        consoleLibrary: "N64",
+        consoleLibrary: "Nintendo 64",
         releaseYear: 1999,
         gameImg: 'img/Rayman2.jpg'
     },
     {
         gameName: "Mario Kart 64",
-        consoleLibrary: "N64",
+        consoleLibrary: "Nintendo 64",
         releaseYear: 1997,
         gameImg: 'img/mariokart64.webp'
     }
@@ -99,3 +99,4 @@ const gamingConsoles = [
     }
 ]
 
+let choosenConsole = '';
