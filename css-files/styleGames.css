@@ -9,4 +9,6 @@
     background-color: cadetblue;
     width: 800px;
     height: auto;
+    overflow: scroll;
+    overflow-x: hidden;
 }

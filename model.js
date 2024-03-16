@@ -100,3 +100,8 @@ const gamingConsoles = [
 ]
 
 let choosenConsole = '';
+let inputGameName = '';
+let inputRealeseYear = '';
+let inputEngine = '';
+
+let newInputGame = '';

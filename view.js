@@ -11,7 +11,9 @@ function updateView() {
     <br/>
     <br/>
     <div id="buttonContainer">
-    <button onclick="addNewGame()">Add a New Game</button><button>Get a Random Game</button><button onclick="updateView()">See all Games</button>
+            <button onclick="addNewGame()">Add a New Game</button>
+            <button onclick ="getRandomGame()">Get a Random Game</button>
+            <button onclick="updateView()">See all Games</button>
     </div>
     <h3>My Games</h3>                   </div>
     <br/>
@@ -47,11 +49,16 @@ function addNewGame() {
     <br><button onclick="updateView()">Back to library</button>
     <div>
     <br/>
-    <div>Game Title:   </div> <input>
-    <div>Release year: </div> <input>
-    <div>Console:      </div> <input>
+    <div>Game Title:   </div> <input onchange="inputGame(this.value)"/>
+    <div>Release year: </div> <input onchange="inputYear(this.value)"/>
+    <div>Console:      </div> <select onchange="inputConsole(this.value)">
+                                    <option>Nintendo 64</option>
+                                    <option>Nintendo Entertainment System (NES)</option>
+                                    <option>GameCube</option>
+                                    </select>
     <br/>
-    <button onclick="">Add New Game</button>
+    <br/>
+    <button onclick="addANewGame()">Add New Game</button>
     </div>
     `;
 }
