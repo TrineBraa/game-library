@@ -70,6 +70,48 @@ function showAllGames() {
     for (let i = 0; i < allGames.length; i++) {
         gamesHtml += `<img class="showngameImg" onclick="" src="${allGames[i].gameImg}"/>`;
     }
-
     return gamesHtml;
 }
+
+//A function that shows the different games as a console is chosen.
+function showGames() {
+    if (choosenConsole == "GameCube") {
+        showGameCubeGames()
+    } else if (choosenConsole == "Nintendo 64") {
+        showN64Games()
+    } else if (choosenConsole == "Nintendo Entertainment System (NES)") {
+        showNESGames()
+    }
+    else {
+        showAllGames()
+    }
+}
+
+//Show the games of a chosen consol.
+function showNESGames() {
+    gamesHtml = '';
+    for (let i = 0; i < allGames.length; i++) {
+        if (allGames[i].consoleLibrary == choosenConsole)
+            gamesHtml += `<img class="showngameImg" onclick="" src="${allGames[i].gameImg}"/>`;
+    }
+    return gamesHtml;
+}
+
+function showN64Games() {
+    gamesHtml = '';
+    for (let i = 0; i < allGames.length; i++) {
+        if (allGames[i].consoleLibrary == choosenConsole)
+            gamesHtml += `<img class="showngameImg" onclick="" src="${allGames[i].gameImg}"/>`;
+    }
+    return gamesHtml;
+}
+
+function showGameCubeGames() {
+    gamesHtml = '';
+    for (let i = 0; i < allGames.length; i++) {
+        if (allGames[i].consoleLibrary == choosenConsole)
+            gamesHtml += `<img class="showngameImg" onclick="" src="${allGames[i].gameImg}"/>`;
+    }
+    return gamesHtml;
+}
+
