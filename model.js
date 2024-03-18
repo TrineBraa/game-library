@@ -99,7 +99,11 @@ const gamingConsoles = [
     }
 ]
 
+
+//Variable that holds the choosen console on click
 let choosenConsole = '';
+
+//Variable that holds the choosen game on click
 let choosenGame = '';
 
 //Input variables

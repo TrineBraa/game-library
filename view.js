@@ -7,15 +7,15 @@ function updateView() {
     <h1>Game Library</h1>
     <br/>
     <h2>My Consoles</h2>
-    <div id="consoleContainer">    ${seeConsoles()}     </div> <div id="showGameInfo">${chosenGame()}</div>
+    <div id="consoleContainer">${seeConsoles()}</div> <div id="showGameInfo">${showChosenGame()}</div>
     <br/>
     <br/>
     <div id="buttonContainer">
             <button onclick="addNewGame()">Add a New Game</button>
             <button onclick ="getRandomGame()">Get a Random Game</button>
             <button onclick="removeChosenConsole()">See all Games</button>
-    </div>
-    <h3>My Games</h3>                   </div>
+    <br/>
+    <h3>My Games</h3>                 
     <br/>
     <div id="gameContainer">         ${showGames()}                   </div>
     `;
@@ -33,20 +33,21 @@ function seeConsoles() {
 }
 
 //A View for chosen Game
-function chosenGame() {
+function showChosenGame(index) {
     let choosenGameHTML = '';
-    for (let i = 0; i < allGames[i]; i++) {
-        choosenGameHTML = `<img class="showngameImg" onclick="chosenGame()" src="${allGames[i].gameImg}"/><br/>
-                            <div>${allGames[i].gameName}</div><br/>
-                            <div>${allGames[i].releaseYear}</div><br/>
-                            <div>${allGames[i].consoleLibrary}</div>`;
+    for (let i = 0; i < allGames[i].length; i++) {
+        choosenGameHTML = `<img class="showngameImg" onclick="chooseAGame()" src="${allGames[index].gameImg}"/><br/>
+                            <div>${allGames[index].gameName}</div><br/>
+                            <div>${allGames[index].releaseYear}</div><br/>
+                            <div>${allGames[index].consoleLibrary}</div>`;
+        console.log(showChosenGame);
         return choosenGameHTML;
     }
 }
 //Selected console view
 function selectedConsole() {
     if (choosenConsole == allGames[i].consoleLibrary) {
-        gamesHtml += `<img class="showngameImg" onclick="" src=""/>`;
+        gamesHtml += `<img class="showngameImg" onclick="chosenGame()" src=""/>`;
         updateView()
     }
 }
@@ -92,7 +93,7 @@ function showAllGames() {
     let gamesHtml = '';
     for (let i = 0; i < allGames.length; i++) {
         gamesHtml += `<div class="shownText">
-                        <img class="showngameImg" onclick="chosenGame()" src="${allGames[i].gameImg}"/><br/> 
+                        <img class="showngameImg" onclick="showChosenGame()" src="${allGames[i].gameImg}"/><br/> 
                         ${allGames[i].gameName}</div>`;
     }
     return gamesHtml;
@@ -106,7 +107,7 @@ function showNESGames() {
         console.log("chosenConsole: " + choosenConsole)
         if (allGames[i].consoleLibrary == choosenConsole)
             gamesHtml += `<div class="shownText">
-                        <img class="showngameImg" onclick="chosenGame()" src="${allGames[i].gameImg}"/>
+                        <img class="showngameImg" onclick="showChosenGame()" src="${allGames[i].gameImg}"/>
                          ${allGames[i].gameName}</div>`;
     }
     return gamesHtml;
@@ -117,7 +118,7 @@ function showN64Games() {
     for (let i = 0; i < allGames.length; i++) {
         if (allGames[i].consoleLibrary == choosenConsole)
             gamesHtml += `<div class="shownText">
-                         <img class="showngameImg" onclick="chosenGame()" src="${allGames[i].gameImg}"/>
+                         <img class="showngameImg" onclick="showChosenGame()" src="${allGames[i].gameImg}"/>
                           ${allGames[i].gameName}</div>`;
     }
     console.log(gamesHtml)
@@ -129,7 +130,7 @@ function showGameCubeGames() {
     for (let i = 0; i < allGames.length; i++) {
         if (allGames[i].consoleLibrary == choosenConsole)
             gamesHtml += `<div class="shownText">
-                            <img class="showngameImg" onclick="chosenGame()" src="${allGames[i].gameImg}"/>
+                            <img class="showngameImg" onclick="showChosenGame()" src="${allGames[i].gameImg}"/>
                             ${allGames[i].gameName}</div>`;
     }
     return gamesHtml;
