@@ -2,10 +2,22 @@
 function chooseAConsole(index) {
     choosenConsole = gamingConsoles[index].name;
     console.log(choosenConsole)
+    updateView()
 }
 
 //Reset the View
+function removeChosenConsole() {
+    choosenConsole = ''
+    updateView()
+}
 
+
+//Choose a Game
+function chooseAGame(index) {
+    choosenGame = allGames[index].gameName;
+    console.log(choosenGame)
+    updateView()
+}
 
 //get a Random Game
 function getRandomGame() {
@@ -30,10 +42,11 @@ function inputConsole(inputValue) {
 function addANewGame() {
     newInputGame = {
         gameName: inputGameName,
-        consoleLibrary: inputRealeseYear,
-        releaseYear: inputEngine,
+        consoleLibrary: inputEngine,
+        releaseYear: inputRealeseYear,
         gameImg: ''
     }
-    allGames.push[newInputGame];
+    allGames.push(newInputGame);
+
     updateView()
 }

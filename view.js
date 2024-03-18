@@ -7,17 +7,17 @@ function updateView() {
     <h1>Game Library</h1>
     <br/>
     <h2>My Consoles</h2>
-    <div id="consoleContainer">    ${seeConsoles()}     </div>
+    <div id="consoleContainer">    ${seeConsoles()}     </div> <div id="showGameInfo">${chosenGame()}</div>
     <br/>
     <br/>
     <div id="buttonContainer">
             <button onclick="addNewGame()">Add a New Game</button>
             <button onclick ="getRandomGame()">Get a Random Game</button>
-            <button onclick="updateView()">See all Games</button>
+            <button onclick="removeChosenConsole()">See all Games</button>
     </div>
     <h3>My Games</h3>                   </div>
     <br/>
-    <div id="gameContainer">         ${showAllGames()}                   </div>
+    <div id="gameContainer">         ${showGames()}                   </div>
     `;
 }
 
@@ -25,14 +25,24 @@ function updateView() {
 
 //all Consol View (gameCube, Nintendo 64 & Nintendo Entertainment System (NES))
 function seeConsoles() {
-    consoleHtml = '';
+    let consoleHtml = '';
     for (let i = 0; i < gamingConsoles.length; i++) {
         consoleHtml += `<img class="consoles" onclick="chooseAConsole(${i})" src="${gamingConsoles[i].consoleImg}" />`
     }
     return consoleHtml;
 }
 
-
+//A View for chosen Game
+function chosenGame() {
+    let choosenGameHTML = '';
+    for (let i = 0; i < allGames[i]; i++) {
+        choosenGameHTML = `<img class="showngameImg" onclick="chosenGame()" src="${allGames[i].gameImg}"/><br/>
+                            <div>${allGames[i].gameName}</div><br/>
+                            <div>${allGames[i].releaseYear}</div><br/>
+                            <div>${allGames[i].consoleLibrary}</div>`;
+        return choosenGameHTML;
+    }
+}
 //Selected console view
 function selectedConsole() {
     if (choosenConsole == allGames[i].consoleLibrary) {
@@ -40,7 +50,6 @@ function selectedConsole() {
         updateView()
     }
 }
-
 
 //add A New Game View (input fields and buttons)
 function addNewGame() {
@@ -64,53 +73,64 @@ function addNewGame() {
 }
 
 
+//A function that shows the different games as a console is chosen.
+function showGames() {
+    if (choosenConsole == "GameCube") {
+        return showGameCubeGames()
+    } else if (choosenConsole == "Nintendo 64") {
+        return showN64Games()
+    } else if (choosenConsole == "Nintendo Entertainment System (NES)") {
+        return showNESGames()
+    }
+    else {
+        return showAllGames()
+    }
+}
+
 // game View
 function showAllGames() {
-    gamesHtml = '';
+    let gamesHtml = '';
     for (let i = 0; i < allGames.length; i++) {
-        gamesHtml += `<img class="showngameImg" onclick="" src="${allGames[i].gameImg}"/>`;
+        gamesHtml += `<div class="shownText">
+                        <img class="showngameImg" onclick="chosenGame()" src="${allGames[i].gameImg}"/><br/> 
+                        ${allGames[i].gameName}</div>`;
     }
     return gamesHtml;
 }
 
-//A function that shows the different games as a console is chosen.
-function showGames() {
-    if (choosenConsole == "GameCube") {
-        showGameCubeGames()
-    } else if (choosenConsole == "Nintendo 64") {
-        showN64Games()
-    } else if (choosenConsole == "Nintendo Entertainment System (NES)") {
-        showNESGames()
-    }
-    else {
-        showAllGames()
-    }
-}
-
 //Show the games of a chosen consol.
 function showNESGames() {
-    gamesHtml = '';
+    let gamesHtml = '';
     for (let i = 0; i < allGames.length; i++) {
+        console.log(allGames[i])
+        console.log("chosenConsole: " + choosenConsole)
         if (allGames[i].consoleLibrary == choosenConsole)
-            gamesHtml += `<img class="showngameImg" onclick="" src="${allGames[i].gameImg}"/>`;
+            gamesHtml += `<div class="shownText">
+                        <img class="showngameImg" onclick="chosenGame()" src="${allGames[i].gameImg}"/>
+                         ${allGames[i].gameName}</div>`;
     }
     return gamesHtml;
 }
 
 function showN64Games() {
-    gamesHtml = '';
+    let gamesHtml = '';
     for (let i = 0; i < allGames.length; i++) {
         if (allGames[i].consoleLibrary == choosenConsole)
-            gamesHtml += `<img class="showngameImg" onclick="" src="${allGames[i].gameImg}"/>`;
+            gamesHtml += `<div class="shownText">
+                         <img class="showngameImg" onclick="chosenGame()" src="${allGames[i].gameImg}"/>
+                          ${allGames[i].gameName}</div>`;
     }
+    console.log(gamesHtml)
     return gamesHtml;
 }
 
 function showGameCubeGames() {
-    gamesHtml = '';
+    let gamesHtml = '';
     for (let i = 0; i < allGames.length; i++) {
         if (allGames[i].consoleLibrary == choosenConsole)
-            gamesHtml += `<img class="showngameImg" onclick="" src="${allGames[i].gameImg}"/>`;
+            gamesHtml += `<div class="shownText">
+                            <img class="showngameImg" onclick="chosenGame()" src="${allGames[i].gameImg}"/>
+                            ${allGames[i].gameName}</div>`;
     }
     return gamesHtml;
 }

@@ -100,8 +100,12 @@ const gamingConsoles = [
 ]
 
 let choosenConsole = '';
+let choosenGame = '';
+
+//Input variables
 let inputGameName = '';
 let inputRealeseYear = '';
 let inputEngine = '';
 
+// Variable that holds the info about the input game
 let newInputGame = '';
