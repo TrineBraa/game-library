@@ -105,6 +105,8 @@ let choosenConsole = '';
 
 //Variable that holds the choosen game on click
 let choosenGame = '';
+let choosenGameIndex = 0;
+let showingGame = false;
 
 //Input variables
 let inputGameName = '';

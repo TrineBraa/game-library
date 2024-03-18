@@ -23,3 +23,11 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+#extraGameInfo{
+    background-color: cadetblue;
+    height: 90px;
+    width: 300px;
+    margin: 20px;
+    justify-self: right;
+}

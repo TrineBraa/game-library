@@ -7,7 +7,7 @@ function updateView() {
     <h1>Game Library</h1>
     <br/>
     <h2>My Consoles</h2>
-    <div id="consoleContainer">${seeConsoles()}</div> <div id="showGameInfo">${showChosenGame()}</div>
+    <div id="consoleContainer">${seeConsoles()}</div> <div id="showGameInfo"> ${showingGame == true ? showSelectedGame() : ""}</div>
     <br/>
     <br/>
     <div id="buttonContainer">
@@ -33,24 +33,34 @@ function seeConsoles() {
 }
 
 //A View for chosen Game
-function showChosenGame(index) {
-    let choosenGameHTML = '';
-    for (let i = 0; i < allGames[i].length; i++) {
-        choosenGameHTML = `<img class="showngameImg" onclick="chooseAGame()" src="${allGames[index].gameImg}"/><br/>
-                            <div>${allGames[index].gameName}</div><br/>
-                            <div>${allGames[index].releaseYear}</div><br/>
-                            <div>${allGames[index].consoleLibrary}</div>`;
-        console.log(showChosenGame);
-        return choosenGameHTML;
-    }
-}
+
 //Selected console view
 function selectedConsole() {
     if (choosenConsole == allGames[i].consoleLibrary) {
-        gamesHtml += `<img class="showngameImg" onclick="chosenGame()" src=""/>`;
+        gamesHtml += `<img class="showngameImg" onclick="chooseAGame(${i})" src=""/>`;
         updateView()
     }
 }
+// tror jeg vet hva du kan gjøre klassepreik? syure
+//Selected Game View
+function showSelectedGame() {
+    return `<div id="extraGameInfo">
+                            <div>${allGames[choosenGameIndex].gameName}</div>
+                            <div>${allGames[choosenGameIndex].releaseYear}</div>
+                            <div>${allGames[choosenGameIndex].consoleLibrary}</div>
+                        </div>`;
+}
+/* function showSelectedGame(index) {
+    let extraGameHTML = '';
+    if (choosenGame == allGames[index].gameName) {
+        extraGameHTML = `<div id="extraGameInfo">
+                            <div>${allGames[index].gameName}</div>
+                            <div>${allGames[index].releaseYear}</div>
+                            <div>${allGames[index].consoleLibrary}</div>
+                        </div>`;
+    }
+    return extraGameHTML;
+} */
 
 //add A New Game View (input fields and buttons)
 function addNewGame() {
@@ -93,7 +103,7 @@ function showAllGames() {
     let gamesHtml = '';
     for (let i = 0; i < allGames.length; i++) {
         gamesHtml += `<div class="shownText">
-                        <img class="showngameImg" onclick="showChosenGame()" src="${allGames[i].gameImg}"/><br/> 
+                        <img class="showngameImg" onclick="chooseAGame(${i})" src="${allGames[i].gameImg}"/><br/> 
                         ${allGames[i].gameName}</div>`;
     }
     return gamesHtml;
@@ -103,11 +113,9 @@ function showAllGames() {
 function showNESGames() {
     let gamesHtml = '';
     for (let i = 0; i < allGames.length; i++) {
-        console.log(allGames[i])
-        console.log("chosenConsole: " + choosenConsole)
         if (allGames[i].consoleLibrary == choosenConsole)
             gamesHtml += `<div class="shownText">
-                        <img class="showngameImg" onclick="showChosenGame()" src="${allGames[i].gameImg}"/>
+                        <img class="showngameImg" onclick="chooseAGame(${i})" src="${allGames[i].gameImg}"/>
                          ${allGames[i].gameName}</div>`;
     }
     return gamesHtml;
@@ -118,7 +126,7 @@ function showN64Games() {
     for (let i = 0; i < allGames.length; i++) {
         if (allGames[i].consoleLibrary == choosenConsole)
             gamesHtml += `<div class="shownText">
-                         <img class="showngameImg" onclick="showChosenGame()" src="${allGames[i].gameImg}"/>
+                         <img class="showngameImg" onclick="chooseAGame(${i})" src="${allGames[i].gameImg}"/>
                           ${allGames[i].gameName}</div>`;
     }
     console.log(gamesHtml)
@@ -130,7 +138,7 @@ function showGameCubeGames() {
     for (let i = 0; i < allGames.length; i++) {
         if (allGames[i].consoleLibrary == choosenConsole)
             gamesHtml += `<div class="shownText">
-                            <img class="showngameImg" onclick="showChosenGame()" src="${allGames[i].gameImg}"/>
+                            <img class="showngameImg" onclick="chooseAGame(${i})" src="${allGames[i].gameImg}"/>
                             ${allGames[i].gameName}</div>`;
     }
     return gamesHtml;

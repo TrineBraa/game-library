@@ -14,9 +14,11 @@ function removeChosenConsole() {
 
 //Choose a Game
 function chooseAGame(index) {
-    choosenGame = allGames[index].gameName;
+    choosenGameIndex = index;
+    showingGame = true;
     console.log(choosenGame)
     updateView()
+    /* choosenGame = allGames[index].gameName; */
 }
 
 //get a Random Game
