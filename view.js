@@ -7,7 +7,7 @@ function updateView() {
     <h1>Game Library</h1>
     <br/>
     <h2>My Consoles</h2>
-    <div id="consoleContainer">${seeConsoles()}</div> <div id="showGameInfo"> ${showingGame == true ? showSelectedGame() : ""}</div>
+    <div id="consoleContainer">${seeConsoles()} <div id="showGameInfo"> ${showingGame == true ? showSelectedGame() : ""}</div></div>
     <br/>
     <br/>
     <div id="buttonContainer">
