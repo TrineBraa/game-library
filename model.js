@@ -108,6 +108,8 @@ let choosenGame = '';
 let choosenGameIndex = 0;
 let showingGame = false;
 
+let gameResult = 0;
+
 //Input variables
 let inputGameName = '';
 let inputRealeseYear = '';

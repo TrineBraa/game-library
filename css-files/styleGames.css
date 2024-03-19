@@ -31,5 +31,17 @@
     margin: 20px;
     justify-self: right;
     padding: 20px;
-    
+    border: burlywood 30px solid;
+    align-self: baseline;
+}
+
+#randomGame{
+    background-color: cadetblue;
+    height: 90px;
+    width: 300px;
+    margin: 20px;
+    justify-self: right;
+    padding: 20px;
+    border: burlywood 30px solid;
+    align-self: baseline;
 }

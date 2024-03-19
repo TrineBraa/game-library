@@ -1,0 +1,13 @@
+#body{
+    background-color: burlywood;
+}
+
+.buttonDesign{
+    background-color: darkcyan;
+    border: none;
+    height: 40px;
+    width: 170px;
+    border-radius: 30px;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

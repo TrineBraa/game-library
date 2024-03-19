@@ -8,24 +8,11 @@ function chooseAConsole(index) {
 //Reset the View
 function removeChosenConsole() {
     choosenConsole = ''
+    extraInfoHTML = ''
     updateView()
 }
 
 
-//Choose a Game
-function chooseAGame(index) {
-    choosenGameIndex = index;
-    showingGame = true;
-    console.log(choosenGame)
-    updateView()
-    /* choosenGame = allGames[index].gameName; */
-}
-
-//get a Random Game
-function getRandomGame() {
-    let gameResult = Math.floor(Math.random() ^ allGames.length);
-    return gameResult;
-}
 
 
 // add a New Game
@@ -50,5 +37,20 @@ function addANewGame() {
     }
     allGames.push(newInputGame);
 
+    updateView()
+}
+
+//Choose a Game
+function chooseAGame(index) {
+    choosenGameIndex = index;
+    showingGame = true;
+    console.log(choosenGame)
+    updateView()
+    /* choosenGame = allGames[index].gameName; */
+}
+
+function getRandomGame() {
+    showingGame = true
+    choosenGameIndex = Math.floor(Math.random() * allGames.length)
     updateView()
 }

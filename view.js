@@ -1,6 +1,7 @@
 //Main View (Holds everything from the base view of things.)
 updateView()
 
+// ${showRandomGame()}
 function updateView() {
     document.getElementById("app").innerHTML = /*HTML*/`
     <br>
@@ -11,9 +12,9 @@ function updateView() {
     <br/>
     <br/>
     <div id="buttonContainer">
-            <button onclick="addNewGame()">Add a New Game</button>
-            <button onclick ="getRandomGame()">Get a Random Game</button>
-            <button onclick="removeChosenConsole()">See all Games</button>
+            <button class="buttonDesign" onclick="addNewGame()">Add a New Game</button>
+            <button class="buttonDesign" onclick ="getRandomGame()">Get a Random Game</button>
+            <button class="buttonDesign" onclick="removeChosenConsole()">See all Games</button>
     <br/>
     <h3>My Games</h3>                 
     <br/>
@@ -21,52 +22,11 @@ function updateView() {
     `;
 }
 
-
-
-//all Consol View (gameCube, Nintendo 64 & Nintendo Entertainment System (NES))
-function seeConsoles() {
-    let consoleHtml = '';
-    for (let i = 0; i < gamingConsoles.length; i++) {
-        consoleHtml += `<img class="consoles" onclick="chooseAConsole(${i})" src="${gamingConsoles[i].consoleImg}" />`
-    }
-    return consoleHtml;
-}
-
-//A View for chosen Game
-
-//Selected console view
-function selectedConsole() {
-    if (choosenConsole == allGames[i].consoleLibrary) {
-        gamesHtml += `<img class="showngameImg" onclick="chooseAGame(${i})" src=""/>`;
-        updateView()
-    }
-}
-// tror jeg vet hva du kan gjøre klassepreik? syure
-//Selected Game View
-function showSelectedGame() {
-    return `<div id="extraGameInfo">
-                            <div>${allGames[choosenGameIndex].gameName}</div>
-                            <div>${allGames[choosenGameIndex].releaseYear}</div>
-                            <div>${allGames[choosenGameIndex].consoleLibrary}</div>
-                        </div>`;
-}
-/* function showSelectedGame(index) {
-    let extraGameHTML = '';
-    if (choosenGame == allGames[index].gameName) {
-        extraGameHTML = `<div id="extraGameInfo">
-                            <div>${allGames[index].gameName}</div>
-                            <div>${allGames[index].releaseYear}</div>
-                            <div>${allGames[index].consoleLibrary}</div>
-                        </div>`;
-    }
-    return extraGameHTML;
-} */
-
 //add A New Game View (input fields and buttons)
 function addNewGame() {
     app.innerHTML = `
     <h1>New Game</h1>
-    <br><button onclick="updateView()">Back to library</button>
+    <br><button class="buttonDesign" onclick="updateView()">Back to library</button>
     <div>
     <br/>
     <div>Game Title:   </div> <input onchange="inputGame(this.value)"/>
@@ -78,9 +38,28 @@ function addNewGame() {
                                     </select>
     <br/>
     <br/>
-    <button onclick="addANewGame()">Add New Game</button>
+    <button class="buttonDesign" onclick="addANewGame()">Add New Game</button>
     </div>
     `;
+}
+
+
+//all Consol View (gameCube, Nintendo 64 & Nintendo Entertainment System (NES))
+function seeConsoles() {
+    let consoleHtml = '';
+    for (let i = 0; i < gamingConsoles.length; i++) {
+        consoleHtml += `<img class="consoles" onclick="chooseAConsole(${i})" src="${gamingConsoles[i].consoleImg}" />`
+    }
+    return consoleHtml;
+}
+
+
+//Selected console view
+function selectedConsole() {
+    if (choosenConsole == allGames[i].consoleLibrary) {
+        gamesHtml += `<img class="showngameImg" onclick="chooseAGame(${i})" src=""/>`;
+        updateView()
+    }
 }
 
 
@@ -144,3 +123,21 @@ function showGameCubeGames() {
     return gamesHtml;
 }
 
+
+//Selected Game View
+function showSelectedGame() {
+    return `<div id="extraGameInfo">
+                            <div>${allGames[choosenGameIndex].gameName}</div>
+                            <div>${allGames[choosenGameIndex].releaseYear}</div>
+                            <div>${allGames[choosenGameIndex].consoleLibrary}</div>
+                        </div>`;
+}
+
+//get a Random Game
+function showRandomGame() {
+    return `<div id="extraGameInfo">
+                    <div>${allGames[gameResult].gameName}</div>
+                    <div>${allGames[gameResult].releaseYear}</div>
+                    <div>${allGames[gameResult].consoleLibrary}</div>
+            </div>`;
+}
